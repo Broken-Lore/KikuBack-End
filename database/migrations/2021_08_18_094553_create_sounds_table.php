@@ -17,7 +17,8 @@ class CreateSoundsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('audio');
-            $table->foreignId('scene_id')->nullable()->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('scene_id');
+            $table->foreign('scene_id')->nullable()->references('id')->on('scenes')->onDelete('cascade');
         });
     }
 
