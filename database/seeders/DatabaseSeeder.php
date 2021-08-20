@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use \App\Models\Scene;
+use \App\Models\Sound;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+       Scene::factory(1)->create([
+           'name' => 'Kitchen'
+       ]);
+
+       Sound::factory(1)->create([
+
+       ]);
     }
 }

@@ -17,7 +17,9 @@ class CreateSoundsTable extends Migration
             $table->id();
             $table->foreignId('scene_id')->constrained();
             $table->string('name');
+            $table->string('image');
             $table->string('audio');
+            $table->timestamps();
         });
 
     }
