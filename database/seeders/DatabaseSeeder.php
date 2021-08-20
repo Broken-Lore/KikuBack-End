@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
            'name' => 'Kitchen'
        ]);
 
-       Sound::factory(1)->create([
+      /*  Sound::factory(1)->create([
 
-       ]);
+       ]); */
     }
 }
