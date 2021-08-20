@@ -15,11 +15,13 @@ class CreateSoundsTable extends Migration
     {
         Schema::create('sounds', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('scene_id')->constrained();
             $table->string('name');
+            $table->string('image');
             $table->string('audio');
-            $table->unsignedBigInteger('scene_id');
-            $table->foreign('scene_id')->nullable()->references('id')->on('scenes')->onDelete('cascade');
+            $table->timestamps();
         });
+
     }
 
     /**

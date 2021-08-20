@@ -10,6 +10,11 @@ class Sound extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'audio'
+    ];
+
     public function scene(){
         return $this->belongsTo(Scene::class);
     }
