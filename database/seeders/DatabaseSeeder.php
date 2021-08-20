@@ -15,12 +15,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-       Scene::factory(1)->create([
+      $kitchen = Scene::factory(1)->create([
            'name' => 'Kitchen'
        ]);
 
-     /*    Sound::factory(1)->create([
-
-        ]); */
+       Sound::factory(1)->create([
+        'name' => 'Cat',
+        'image' => 'storage\app\public\Files\Kitchen\Img\cat.png',
+        'audio' => 'storage\app\public\Files\Kitchen\Sounds\cat.wav',
+        'scene_id' => 1
+        ]);
     }
 }
