@@ -22,7 +22,9 @@ class SoundFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "name" => $this->faker->firstName(),
+            "image" => $this->faker->image(),
+            "audio" => $this->faker->file()
         ];
     }
 }
