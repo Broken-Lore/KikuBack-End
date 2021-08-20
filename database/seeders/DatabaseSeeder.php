@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
 
        Sound::factory(1)->create([
 
-       ]);
+        ]);
     }
 }
