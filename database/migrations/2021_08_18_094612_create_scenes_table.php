@@ -14,9 +14,10 @@ class CreateScenesTable extends Migration
     public function up()
     {
         Schema::create('scenes', function (Blueprint $table) {
-            $table->id('id');
+            $table->id();
             $table->string('name');
             $table->timestamps();
+            $table->string('image');
         });
     }
 
