@@ -24,7 +24,8 @@ class SoundFactory extends Factory
         return [
             "name" => $this->faker->firstName(),
             "image" => $this->faker->image(),
-            "audio" => $this->faker->file()
+            "audio" => $this->faker->image(),
+            "scene_id" => $this->faker->randomDigit()
         ];
     }
 }

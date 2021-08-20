@@ -22,7 +22,7 @@ class SceneFactory extends Factory
     public function definition()
     {
         return [
-            "title" => $this->faker->company(),
+            "name" => $this->faker->company(),
             "image" => $this->faker->image()
         ];
     }

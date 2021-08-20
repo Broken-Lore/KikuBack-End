@@ -12,7 +12,8 @@ class Sound extends Model
 
     protected $fillable = [
         'name',
-        'audio'
+        'audio',
+        'img'
     ];
 
     public function scene(){
