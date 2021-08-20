@@ -15,10 +15,11 @@ class CreateSoundsTable extends Migration
     {
         Schema::create('sounds', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('scene_id')->constrained();
             $table->string('name');
             $table->string('audio');
-            $table->foreignId('scene_id')->nullable()->constrained()->onDelete('cascade');
         });
+
     }
 
     /**
