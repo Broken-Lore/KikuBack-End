@@ -11,6 +11,7 @@ use App\Models\Sound;
 class SoundTest extends TestCase
 {
     use RefreshDatabase;
+
     public function test_retrieve_all_Sounds()
     {
         Scene::factory(1)->create([]);
@@ -38,7 +39,6 @@ class SoundTest extends TestCase
         $response = $this->get('api/sounds/1');
 
         $response->assertStatus(200)
-            ->assertJsonCount(1)
             ->assertJsonFragment($data);
     }
 }
