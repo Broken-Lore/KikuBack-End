@@ -26,6 +26,7 @@ Route::get('/scenes', [SceneController::class, 'index'])->name('scenes');
 
 
 Route::get('/sounds', [SoundController::class, 'index'])->name('sounds');
+Route::get('/sounds/{id}', [SoundController::class, 'getSound'])->name('sound');
 
 
 
