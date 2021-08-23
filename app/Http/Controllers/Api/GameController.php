@@ -12,7 +12,15 @@ class GameController extends Controller
     {
         $scene = Scene::find($id);
 
+        if(!$scene){
+            return response()->json("Scene not found", 404);
+
+        }
         $sounds = $scene->sounds->all();
+
+        if(!$sounds){
+            return response()->json("Sounds not found", 404);
+        }
 
         $randomIndex = array_rand($sounds);
 
@@ -23,5 +31,14 @@ class GameController extends Controller
 
             $this->CompareSounds($randomSound->id);
         }
+    }
+
+    public function CompareSounds($randomId){
+       
+
+
+
+
+
     }
 }
