@@ -22,7 +22,10 @@ class GameTest extends TestCase
         $response = $this->get('api/gameSound/1');
 
 
-        $response->assertStatus(200);
+        $response->assertStatus(200)
+        ->assertJsonStructure([
+            "name"
+        ]);
     }
 
     public function test_can_error_message_when_there_is_no_scene()
@@ -35,7 +38,9 @@ class GameTest extends TestCase
 
 
         $response->assertStatus(404);
+         
     }
+
     public function test_can_error_message_when_there_is_no_sounds()
     {
         Scene::factory(1)->create([]);
