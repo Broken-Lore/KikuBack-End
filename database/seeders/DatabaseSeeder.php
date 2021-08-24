@@ -20,45 +20,45 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Sound::factory(1)->create([
-            'name' => 'Cat',
+            'name' => 'cat',
             'image' => 'storage\app\public\Files\Kitchen\Img\cat.png',
             'audio' => 'storage\app\public\Files\Kitchen\Sounds\cat.wav',
             'scene_id' => 1
         ]);
 
         Sound::factory(1)->create([
-            'name' => 'Dog',
+            'name' => 'dog',
             'image' => 'storage\app\public\Files\Kitchen\Img\dog.png',
             'audio' => 'storage\app\public\Files\Kitchen\Sounds\dog.mp3',
             'scene_id' => 1
         ]);
 
         Sound::factory(1)->create([
-            'name' => 'Clock',
+            'name' => 'clock',
             'image' => 'storage\app\public\Files\Kitchen\Img\clock.png',
             'audio' => 'storage\app\public\Files\Kitchen\Sounds\clock.mp3',
             'scene_id' => 1
         ]);
         Sound::factory(1)->create([
-            'name' => 'Fridge',
+            'name' => 'fridge',
             'image' => 'storage\app\public\Files\Kitchen\Img\fridge.png',
             'audio' => 'storage\app\public\Files\Kitchen\Sounds\fridge.mp3',
             'scene_id' => 1
         ]);
         Sound::factory(1)->create([
-            'name' => 'Kettle',
+            'name' => 'kettle',
             'image' => 'storage\app\public\Files\Kitchen\Img\kettle.png',
             'audio' => 'storage\app\public\Files\Kitchen\Sounds\kettle.mp3',
             'scene_id' => 1
         ]);
         Sound::factory(1)->create([
-            'name' => 'Mixer',
+            'name' => 'mixer',
             'image' => 'storage\app\public\Files\Kitchen\Img\mixer.png',
             'audio' => 'storage\app\public\Files\Kitchen\Sounds\mixer.mp3',
             'scene_id' => 1
         ]);
         Sound::factory(1)->create([
-            'name' => 'Pan',
+            'name' => 'pan',
             'image' => 'storage\app\public\Files\Kitchen\Img\pan.png',
             'audio' => 'storage\app\public\Files\Kitchen\Sounds\pan.mp3',
             'scene_id' => 1

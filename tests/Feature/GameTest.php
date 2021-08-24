@@ -38,10 +38,10 @@ class GameTest extends TestCase
 
 
         $response->assertStatus(404);
-         
+
     }
 
-    public function test_can_error_message_when_there_is_no_sounds()
+    public function test_can_error_message_when_there_are_no_sounds()
     {
         Scene::factory(1)->create([]);
 
@@ -50,6 +50,27 @@ class GameTest extends TestCase
 
         $response->assertStatus(404);
     }
+
+
+    public function test_status_is_302_when_ids_match(){
+
+        $response = $this->post('api/compare', [
+            'randomSoundId' => 1,
+            'clickedSoundId' => 1,
+        ]);
+
+        $response->assertStatus(302);
+    }
+    public function test_status_is_404_when_ids_dont_match(){
+
+        $response = $this->post('api/compare', [
+            'randomSoundId' => 1,
+            'clickedSoundId' => 1,
+        ]);
+
+        $response->assertStatus(302);
+    }
+
 }
 
 

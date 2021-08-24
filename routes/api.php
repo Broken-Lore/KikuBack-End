@@ -31,3 +31,4 @@ Route::get('/sounds/{id}', [SoundController::class, 'getSound'])->name('soundByI
 
 
 Route::get('/gameSound/{id}', [GameController::class, 'randomSound']);
+Route::post('/compare', [GameController::class, 'soundsMatch']);

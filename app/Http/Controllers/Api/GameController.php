@@ -33,12 +33,15 @@ class GameController extends Controller
         }
     }
 
-    public function CompareSounds($randomId){
-       
+    public function soundsMatch(Request $request){
 
+        $randomSoundId = $request->randomSoundId;
+        $clickedSoundId = $request->clickedSoundId;
 
-
-
-
+        if($randomSoundId == $clickedSoundId){
+            return response()->json(true, 302);
+        }else{
+            return response()->json(false, 404);
+        }
     }
 }
