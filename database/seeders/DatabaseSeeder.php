@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $kitchen = Scene::factory(1)->create([
-            'name' => 'Kitchen'
+            'name' => 'Kitchen',
+            'image' => 'Files/Scenes/kitchen.png'
         ]);
 
         Sound::factory(1)->create([
