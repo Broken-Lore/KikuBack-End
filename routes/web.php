@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('api/scenes', [SceneController::class, 'getImageScenes'])->name('scenes');
+Route::get('scenes/', [SceneController::class, 'getImageScenes'])->name('scenes');
