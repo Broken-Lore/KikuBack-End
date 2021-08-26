@@ -12,13 +12,12 @@ class GameController extends Controller
     {
         $scene = Scene::find($id);
 
-        if(!$scene){
+        if (!$scene) {
             return response()->json("Scene not found", 404);
-
         }
         $sounds = $scene->sounds->all();
 
-        if(!$sounds){
+        if (!$sounds) {
             return response()->json("Sounds not found", 404);
         }
 
@@ -33,15 +32,24 @@ class GameController extends Controller
         }
     }
 
-    public function soundsMatch(Request $request){
+    public function soundsMatch(Request $request)
+    {
 
         $randomSoundId = $request->randomSoundId;
         $clickedSoundId = $request->clickedSoundId;
 
-        if($randomSoundId == $clickedSoundId){
-            return response()->json(true, 302);
-        }else{
-            return response()->json(false, 404);
+
+        $sucess = [
+            "assertion" => true
+        ];
+        $failure = [
+            "assertion" => false
+        ];
+
+        if ($randomSoundId == $clickedSoundId) {
+            return response()->json($sucess, 200);
+        } else {
+            return response()->json($failure, 200);
         }
     }
 }

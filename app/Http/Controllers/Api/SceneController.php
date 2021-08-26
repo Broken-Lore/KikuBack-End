@@ -10,6 +10,7 @@ class SceneController extends Controller
 
     public function index(){
         $scenes = Scene::All();
+
         if($scenes){
             return response()->json($scenes, 200);
         }

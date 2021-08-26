@@ -52,23 +52,29 @@ class GameTest extends TestCase
     }
 
 
-    public function test_status_is_302_when_ids_match(){
+    public function test_response_is_true_when_ids_match(){
 
         $response = $this->post('api/compare', [
             'randomSoundId' => 1,
             'clickedSoundId' => 1,
         ]);
 
-        $response->assertStatus(302);
+        $response->assertExactJson(
+            [
+                "assertion" => true,
+            ]);
     }
-    public function test_status_is_404_when_ids_dont_match(){
+    public function test_response_is_false_when_ids_dont_match(){
 
         $response = $this->post('api/compare', [
             'randomSoundId' => 1,
-            'clickedSoundId' => 1,
+            'clickedSoundId' => 4,
         ]);
 
-        $response->assertStatus(302);
+        $response->assertExactJson(
+            [
+                "assertion" => false,
+            ]);;
     }
 
 }
