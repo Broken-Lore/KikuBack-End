@@ -22,7 +22,8 @@ class InteractionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "game_id" => $this->faker->randomDigit(),
+            "sound_id" => $this->faker->randomDigit()
         ];
     }
 }

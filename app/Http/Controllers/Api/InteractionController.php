@@ -14,7 +14,7 @@ class InteractionController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**

@@ -18,6 +18,6 @@ class Game extends Model
     }
 
     public function interactions(){
-        $this->hasMany(Interaction::class);
+        return $this->hasMany(Interaction::class);
     }
 }

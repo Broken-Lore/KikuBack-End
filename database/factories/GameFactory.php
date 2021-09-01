@@ -22,7 +22,7 @@ class GameFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "user_id" => $this->faker->randomDigit()
         ];
     }
 }
