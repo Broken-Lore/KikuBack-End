@@ -5,9 +5,13 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Models\Scene;
 use App\Models\Sound;
+use App\Models\Game;
+
 
 class GameController extends Controller
 {
+
+    
     public function randomSound($id)
     {
         $scene = Scene::find($id);
