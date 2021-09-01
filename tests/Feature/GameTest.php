@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Scene;
 use App\Models\Sound;
+use App\Models\Game;
 
 class GameTest extends TestCase
 {
@@ -64,6 +65,8 @@ class GameTest extends TestCase
                 "assertion" => true,
             ]);
     }
+   
+
     public function test_response_is_false_when_ids_dont_match(){
 
         $response = $this->post('api/compare', [
@@ -75,6 +78,15 @@ class GameTest extends TestCase
             [
                 "assertion" => false,
             ]);;
+    }
+    public function test_can_retrieve_gameId_when_created(){
+
+        Game::factory()->create([]);
+
+        $response = $this->get('api/gameId/1');
+
+        $response->assertStatus(200)
+        ->assertExactJson([1]);
     }
 
 }
