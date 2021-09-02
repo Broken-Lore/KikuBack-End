@@ -9,6 +9,10 @@ class Scene extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name'
+    ];
+
     public function sounds(){
         return $this->hasMany(Sound::class);
     }

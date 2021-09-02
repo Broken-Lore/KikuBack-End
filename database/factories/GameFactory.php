@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Sound;
+use App\Models\Game;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class SoundFactory extends Factory
+class GameFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Sound::class;
+    protected $model = Game::class;
 
     /**
      * Define the model's default state.
@@ -22,10 +22,7 @@ class SoundFactory extends Factory
     public function definition()
     {
         return [
-            "name" => $this->faker->firstName(),
-            "image" => $this->faker->image(),
-            "audio" => $this->faker->image(),
-            "scene_id" => $this->faker->randomDigit()
+            "user_id" => $this->faker->randomDigit()
         ];
     }
 }
