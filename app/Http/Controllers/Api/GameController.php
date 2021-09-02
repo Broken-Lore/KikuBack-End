@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Scene;
 use App\Models\Sound;
 use App\Models\Game;
+use App\Models\User;
 
 
 class GameController extends Controller
@@ -62,6 +63,15 @@ class GameController extends Controller
         $game = Game::find($id);
 
         return response()->json($game->id, 200);
+    }
+
+    public function userGames($id) {
+
+        $user = User::find($id);
+
+        $games = $user->games;
+
+        return response()->json($games, 200);
     }
 
     public function gameInteractions($id) {

@@ -38,4 +38,6 @@ Route::post('/sounds', [SoundController::class, 'store']);
 
 Route::get('/gameId/{id}', [GameController::class, 'gameId']);
 
+Route::get('/userGames/{id}', [GameController::class, 'userGames']);
+
 Route::get('/gameId/{id}/interactions', [GameController::class, 'gameInteractions']);
