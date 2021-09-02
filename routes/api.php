@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\SceneController;
 use App\Http\Controllers\Api\SoundController;
 use App\Http\Controllers\Api\GameController;
+use App\Http\Controllers\Api\SingInController;
+use App\Http\Controllers\Api\SingOutController;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +20,6 @@ use App\Http\Controllers\Api\GameController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 
 Route::get('/scenes/{id}/sounds', [SceneController::class, 'getSounds'])->name('sceneSounds');
@@ -35,3 +35,7 @@ Route::post('/compare', [GameController::class, 'soundsMatch']);
 
 
 Route::post('/sounds', [SoundController::class, 'store']);
+
+
+Route::post('auth/register', [AuthController::class, 'register']);
+Route::post('auth/login', [AuthController::class, 'login']);
