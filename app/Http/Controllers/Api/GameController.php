@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Scene;
 use App\Models\Sound;
 use App\Models\Game;
@@ -12,7 +13,7 @@ use App\Models\User;
 class GameController extends Controller
 {
 
-    
+
     public function randomSound($id)
     {
         $scene = Scene::find($id);
@@ -58,13 +59,14 @@ class GameController extends Controller
         }
     }
 
-   /*  public function newGame() {
+   public function newGame() {
+       $user = Auth::user();
+       $newGame = New Game();
+       $newGame->user_id = $user->id;
+       $newGame->save();
 
-        $user = User:: create([]);
-        $newGame = new Game();
-        
-        return response()->json($newGame->id, 200);
-    } */
+       return response()->json($newGame, 200);
+   }
 
  public function gameId($id) {
 
@@ -72,7 +74,7 @@ class GameController extends Controller
 
         return response()->json($game->id, 200);
     }
- 
+
     public function userGames($id) {
 
         $user = User::find($id);

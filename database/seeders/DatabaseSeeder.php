@@ -19,7 +19,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $kitchen = Scene::factory(1)->create([
+
+        User::factory(1)->create([
+            'name' => 'user',
+            'email' => 'user@mail.com'
+        ]);
+        Scene::factory(1)->create([
             'name' => 'Kitchen'
         ]);
 
@@ -68,7 +73,6 @@ class DatabaseSeeder extends Seeder
             'scene_id' => 1
         ]);
 
-       User::factory(1)->create(['id' => 1]);
        Game::factory(1)->create(['id' => 1, 'user_id' => 1]);
        Interaction::factory(3)->create(['game_id' => 1, 'sound_id' => 1, 'isCorrect' => true]);
     }
