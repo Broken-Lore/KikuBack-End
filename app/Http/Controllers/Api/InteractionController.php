@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\Sound;
+use App\Models\Interaction;
 use Illuminate\Http\Request;
 
-class SoundController extends Controller
+class InteractionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class SoundController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -41,10 +41,10 @@ class SoundController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Sound  $sound
+     * @param  \App\Models\Interaction  $interaction
      * @return \Illuminate\Http\Response
      */
-    public function show(Sound $sound)
+    public function show(Interaction $interaction)
     {
         //
     }
@@ -52,10 +52,10 @@ class SoundController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Sound  $sound
+     * @param  \App\Models\Interaction  $interaction
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sound $sound)
+    public function edit(Interaction $interaction)
     {
         //
     }
@@ -64,10 +64,10 @@ class SoundController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Sound  $sound
+     * @param  \App\Models\Interaction  $interaction
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sound $sound)
+    public function update(Request $request, Interaction $interaction)
     {
         //
     }
@@ -75,10 +75,10 @@ class SoundController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Sound  $sound
+     * @param  \App\Models\Interaction  $interaction
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sound $sound)
+    public function destroy(Interaction $interaction)
     {
         //
     }
