@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use \App\Models\Scene;
 use \App\Models\Sound;
+use \App\Models\Game;
+use \App\Models\User;
+use \App\Models\Interaction;
 
 
 class DatabaseSeeder extends Seeder
@@ -16,7 +19,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $kitchen = Scene::factory(1)->create([
+
+        User::factory(1)->create([
+            'name' => 'user',
+            'email' => 'user@mail.com'
+        ]);
+        Scene::factory(1)->create([
             'name' => 'Kitchen'
         ]);
 
@@ -64,5 +72,8 @@ class DatabaseSeeder extends Seeder
             'audio' => 'https://github.com/Armun4/KikuBack-End/blob/dev/public/Files/Kitchen/Sounds/pan.mp3?raw=true',
             'scene_id' => 1
         ]);
+
+       Game::factory(1)->create(['id' => 1, 'user_id' => 1]);
+       Interaction::factory(3)->create(['game_id' => 1, 'sound_id' => 1, 'isCorrect' => true]);
     }
 }

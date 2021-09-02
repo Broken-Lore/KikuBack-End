@@ -4,21 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Scene;
+use App\Models\User;
 use App\Models\Interaction;
 
-class Sound extends Model
+class Game extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'audio',
-        'img'
-    ];
 
-    public function scene(){
-        return $this->belongsTo(Scene::class);
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function interactions(){
