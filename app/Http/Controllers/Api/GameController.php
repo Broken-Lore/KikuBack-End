@@ -58,13 +58,21 @@ class GameController extends Controller
         }
     }
 
-    public function gameId($id) {
+   /*  public function newGame() {
+
+        $user = User:: create([]);
+        $newGame = new Game();
+        
+        return response()->json($newGame->id, 200);
+    } */
+
+ public function gameId($id) {
 
         $game = Game::find($id);
 
         return response()->json($game->id, 200);
     }
-
+ 
     public function userGames($id) {
 
         $user = User::find($id);

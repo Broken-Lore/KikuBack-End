@@ -82,9 +82,23 @@ class GameTest extends TestCase
             [
                 "assertion" => false,
             ]
-        );;
+        );
     }
-    public function test_can_retrieve_gameId()
+
+    /* public function test_a_game_can_be_created()
+    {
+        $newGame = new Game();
+        $newGameId = $newGame->id;
+        $response = $this->get('api/newGame');
+
+        $response
+        ->assertJsonCount($newGameId->id, 1);
+          
+
+
+    } */
+
+     public function test_can_retrieve_gameId()
     {
 
         User::factory(1)->create([
@@ -102,7 +116,7 @@ class GameTest extends TestCase
         $response->assertStatus(200)
             ->assertExactJson([1]);
     }
-
+ 
       public function test_a_user_can_play_multiple_games()
     {
         

@@ -36,6 +36,8 @@ Route::post('/compare', [GameController::class, 'soundsMatch']);
 
 Route::post('/sounds', [SoundController::class, 'store']);
 
+/* Route::get('/newGame', [GameController::class, 'newGame']); */
+
 Route::get('/gameId/{id}', [GameController::class, 'gameId']);
 
 Route::get('/userGames/{id}', [GameController::class, 'userGames']);
