@@ -10,6 +10,9 @@ use App\Models\Sound;
 use App\Models\Game;
 use App\Models\User;
 use App\Models\Interaction;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Sanctum\Sanctum;
+
 
 class GameTest extends TestCase
 {
@@ -85,20 +88,18 @@ class GameTest extends TestCase
         );
     }
 
-    /* public function test_a_game_can_be_created()
+    public function test_a_game_can_be_created()
     {
-        $newGame = new Game();
-        $newGameId = $newGame->id;
+        Sanctum::actingAs(User::factory()->create());
+
         $response = $this->get('api/newGame');
 
         $response
-        ->assertJsonCount($newGameId->id, 1);
-          
+            ->assertStatus(200);
+        $this->assertEquals(1, count(Game::all()));
+    }
 
-
-    } */
-
-     public function test_can_retrieve_gameId()
+    public function test_can_retrieve_gameId()
     {
 
         User::factory(1)->create([
@@ -116,10 +117,10 @@ class GameTest extends TestCase
         $response->assertStatus(200)
             ->assertExactJson([1]);
     }
- 
-      public function test_a_user_can_play_multiple_games()
+
+    public function test_a_user_can_play_multiple_games()
     {
-        
+
         User::factory(1)->create(['id' => 6]);
         Game::factory(1)->create(['id' => 3, 'user_id' => 6]);
         Game::factory(1)->create(['id' => 4, 'user_id' => 6]);
@@ -130,11 +131,11 @@ class GameTest extends TestCase
         $response->assertStatus(200)
             ->assertJsonCount(2);
     }
-   
+
 
     public function test_a_game_can_have_multiple_interactions()
     {
-    
+
         User::factory(1)->create(['id' => 2]);
         Game::factory(1)->create(['id' => 1, 'user_id' => 2]);
         Scene::factory(1)->create(['id' => 9]);
@@ -150,6 +151,4 @@ class GameTest extends TestCase
         $response->assertStatus(200)
             ->assertJsonCount(5);
     }
-
-   
 }
