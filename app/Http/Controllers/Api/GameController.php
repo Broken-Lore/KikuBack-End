@@ -8,6 +8,7 @@ use App\Models\Scene;
 use App\Models\Sound;
 use App\Models\Game;
 use App\Models\User;
+use App\Models\Interaction;
 
 
 class GameController extends Controller
@@ -40,7 +41,7 @@ class GameController extends Controller
 
     public function soundsMatch(Request $request)
     {
-
+        $game = $request->gameId;
         $randomSoundId = $request->randomSoundId;
         $clickedSoundId = $request->clickedSoundId;
 
@@ -54,8 +55,10 @@ class GameController extends Controller
 
         if ($randomSoundId == $clickedSoundId) {
             return response()->json($sucess, 200);
+            $this->storeSounds($randomSoundId, $sucess, $game);
         } else {
             return response()->json($failure, 200);
+            $this->storeSound($randomSoundId, $failure, $game);
         }
     }
 
@@ -91,6 +94,13 @@ class GameController extends Controller
         $interactions = $game->interactions;
 
         return response()->json($interactions, 200);
+    }
+
+    public function storeSound($randomSoundId, $assertion, $game) {
+        $interaction = New Interaction();
+        $interaction->game_id = $game;
+
+        return response()->json($randomSoundId, $assertion, $game, 200);
     }
 }
 
