@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         User::factory(1)->create([
             'name' => 'user',
             'email' => 'user@mail.com'
+        
         ]);
         Scene::factory(1)->create([
             'name' => 'Kitchen'
