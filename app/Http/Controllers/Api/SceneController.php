@@ -23,4 +23,5 @@ class SceneController extends Controller
 
         return response()->json($sounds, 200);
     }
+
 }

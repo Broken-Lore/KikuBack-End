@@ -54,11 +54,11 @@ class GameController extends Controller
         ];
 
         if ($randomSoundId == $clickedSoundId) {
-            return response()->json($sucess, 200);
             $this->storeSounds($randomSoundId, $sucess, $game);
+            return response()->json($sucess, 200);
         } else {
-            return response()->json($failure, 200);
             $this->storeSound($randomSoundId, $failure, $game);
+            return response()->json($failure, 200);
         }
     }
 
@@ -99,8 +99,9 @@ class GameController extends Controller
     public function storeSound($randomSoundId, $assertion, $game) {
         $interaction = New Interaction();
         $interaction->game_id = $game;
-
-        return response()->json($randomSoundId, $assertion, $game, 200);
+        $interaction->sound_id=$randomSoundId;
+        $interaction->isCorrect=$assertion;
+        $interaction->save();
     }
 }
 
