@@ -54,10 +54,10 @@ class GameController extends Controller
         ];
 
         if ($randomSoundId == $clickedSoundId) {
-            $this->storeSounds($randomSoundId, $sucess, $game);
+            $this->storeSound($randomSoundId, true, $game);
             return response()->json($sucess, 200);
         } else {
-            $this->storeSound($randomSoundId, $failure, $game);
+            $this->storeSound($randomSoundId, false, $game);
             return response()->json($failure, 200);
         }
     }
