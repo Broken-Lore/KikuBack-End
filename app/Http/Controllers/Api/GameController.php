@@ -41,10 +41,16 @@ class GameController extends Controller
 
     public function soundsMatch(Request $request)
     {
-        $game = $request->gameId;
+
+        $gameId = $request->gameId;
         $randomSoundId = $request->randomSoundId;
         $clickedSoundId = $request->clickedSoundId;
 
+        $game =  Game::find($gameId);
+
+        if($game->interactions->count() >= 14){
+            return response()->json("done", 200);
+        }
 
         $sucess = [
             "assertion" => true
@@ -54,10 +60,10 @@ class GameController extends Controller
         ];
 
         if ($randomSoundId == $clickedSoundId) {
-            $this->storeSound($randomSoundId, true, $game);
+            $this->storeSound($randomSoundId, true, $gameId);
             return response()->json($sucess, 200);
         } else {
-            $this->storeSound($randomSoundId, false, $game);
+            $this->storeSound($randomSoundId, false, $gameId);
             return response()->json($failure, 200);
         }
     }

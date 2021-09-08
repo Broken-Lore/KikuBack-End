@@ -167,4 +167,29 @@ class GameTest extends TestCase
         $this->assertEquals(count(Interaction::All()),1);
     }
 
+
+    public function test_that_game_can_only_have_15_interaction(){
+        User::factory(1)->create(['id' => 1]);
+        Scene::factory(1)->create(['id' => 1]);
+        Sound::factory(1)->create(['id' => 3, 'scene_id' => 1]);
+        Sound::factory(1)->create(['id' => 1, 'scene_id' => 1]);
+        Game::factory(1)->create(['id' => 1, 'user_id' => 1]);
+        ;
+        Interaction::factory(15)->create([
+            'game_id' => 1,
+            'sound_id' => 3,
+            'isCorrect' => true
+        ]);
+
+        $response = $this->post('api/compare', [
+            'randomSoundId' => 1,
+            'clickedSoundId' => 1,
+            'gameId'=>1,
+        ]);
+        $response->assertExactJson(
+            [
+                "done"
+            ]);
+    }
+
 }
