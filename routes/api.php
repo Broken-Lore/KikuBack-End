@@ -45,7 +45,7 @@ Route::get('/gameId/{id}/interactions', [GameController::class, 'gameInteraction
 Route::post('auth/register', [AuthController::class, 'register']);
 Route::post('auth/login', [AuthController::class, 'login']);
 Route::post('auth/userInfo', [AuthController::class, 'infoUser'])->middleware('auth:sanctum');
-/* Route::get('auth/loggedin', [AuthController::class, 'infoUser'])->middleware('auth:sanctum'); */
+Route::get('auth/loggedin', [AuthController::class, 'infoUser'])->middleware('auth:sanctum');
 
 
 
