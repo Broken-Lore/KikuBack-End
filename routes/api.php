@@ -41,7 +41,7 @@ Route::get('/gameId/{id}', [GameController::class, 'gameId']);
 Route::get('/userGames/{id}', [GameController::class, 'userGames']);
 
 Route::get('/gameId/{id}/interactions', [GameController::class, 'gameInteractions']);
-Route::post('/newInteraction', [GameController::class, 'storeSound']);
+Route::get('/newInteraction', [GameController::class, 'storeSound']);
 
 Route::post('auth/register', [AuthController::class, 'register']);
 Route::post('auth/login', [AuthController::class, 'login']);
