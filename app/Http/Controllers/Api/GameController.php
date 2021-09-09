@@ -48,7 +48,7 @@ class GameController extends Controller
 
         $game =  Game::find($gameId);
 
-        if($game->interactions->count() >= 14){
+        if($game->interactions->count() >= 2){
             return response()->json("done", 200);
         }
 
