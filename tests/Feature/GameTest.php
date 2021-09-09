@@ -112,11 +112,11 @@ class GameTest extends TestCase
     ]);
     Game::factory(1)->create(['id' => 1, 'user_id' => 4]);
 
-    $data = ['id' => 1];
+ 
     $response = $this->get('api/gameId/1');
 
     $response->assertStatus(200)
-        ->assertJsonFragment($data);
+        ->assertJsonFragment(['id' => 1]);
 
 }
 
