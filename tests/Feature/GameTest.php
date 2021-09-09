@@ -57,9 +57,15 @@ class GameTest extends TestCase
     public function test_response_is_true_when_ids_match()
     {
 
+        User::factory(1)->create(['id' => 1]);
+        Scene::factory(1)->create(['id' => 9]);
+        Sound::factory(1)->create(['id' => 1, 'scene_id' => 9]);
+        Sound::factory(1)->create(['id' => 4, 'scene_id' => 9]);
+        Game::factory(1)->create(['id' => 1, 'user_id' => 1]);
         $response = $this->post('api/compare', [
             'randomSoundId' => 1,
             'clickedSoundId' => 1,
+            'gameId'=>1,
         ]);
 
         $response->assertExactJson(
@@ -73,6 +79,11 @@ class GameTest extends TestCase
     public function test_response_is_false_when_ids_dont_match()
     {
 
+        User::factory(1)->create(['id' => 1]);
+        Scene::factory(1)->create(['id' => 9]);
+        Sound::factory(1)->create(['id' => 1, 'scene_id' => 9]);
+        Sound::factory(1)->create(['id' => 4, 'scene_id' => 9]);
+        Game::factory(1)->create(['id' => 1, 'user_id' => 1]);
         $response = $this->post('api/compare', [
             'randomSoundId' => 1,
             'clickedSoundId' => 4,
