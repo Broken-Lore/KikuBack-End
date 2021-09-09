@@ -97,19 +97,6 @@ class GameTest extends TestCase
         );
     }
 
-    /* public function test_a_game_can_be_created()
-    {
-        $newGame = new Game();
-        $newGameId = $newGame->id;
-        $response = $this->get('api/newGame');
-
-        $response
-        ->assertJsonCount($newGameId->id, 1);
-
-
-
-    } */
-
      public function test_can_retrieve_gameId()
     {
 
