@@ -15,9 +15,9 @@ class CreateInteractionsTable extends Migration
     {
         Schema::create('interactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('game_id')->constrained();
-            $table->foreignId('sound_id')->constrained();
-            $table->boolean('isCorrect');
+            $table->foreignId('game_id')->constrained()->nullable();
+            $table->foreignId('sound_id')->constrained()->nullable();
+            $table->boolean('isCorrect')->nullable();
             $table->timestamps();
 
         });
