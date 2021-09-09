@@ -81,7 +81,7 @@ class GameController extends Controller
 
         $game = Game::find($id);
 
-        return response()->json($game->id, 200);
+        return response()->json($game, 200);
     }
 
     public function userGames($id) {

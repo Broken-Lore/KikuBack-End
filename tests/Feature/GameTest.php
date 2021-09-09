@@ -97,24 +97,28 @@ class GameTest extends TestCase
         );
     }
 
-     public function test_can_retrieve_gameId()
-    {
+    
+    public function test_can_retrieve_gameId() {
 
-        User::factory(1)->create([
+    User::factory(1)->create([
             'id' => 4
-        ]);
-        Game::factory(1)->create([
+    ]);
+    Scene::factory(1)->create(['id' => 1]);
+    Sound::factory(1)->create([
+        'name' => 'Cat',
+        'image' => 'storage\app\public\Files\Kitchen\Img\cat.png',
+        'audio' => 'storage\app\public\Files\Kitchen\Sounds\cat.wav',
+        'scene_id' => 1
+    ]);
+    Game::factory(1)->create(['id' => 1, 'user_id' => 4]);
 
-            'id' => 1,
-            'user_id' => 4
-        ]);
+    $data = ['id' => 1];
+    $response = $this->get('api/gameId/1');
 
+    $response->assertStatus(200)
+        ->assertJsonFragment($data);
 
-        $response = $this->get('api/gameId/1');
-
-        $response->assertStatus(200)
-            ->assertExactJson([1]);
-    }
+}
 
       public function test_a_user_can_play_multiple_games()
     {
