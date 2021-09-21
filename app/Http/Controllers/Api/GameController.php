@@ -46,7 +46,7 @@ class GameController extends Controller
         $randomSoundId = $request->randomSoundId;
         $clickedSoundId = $request->clickedSoundId;
 
-        $game =  Game::find($gameId);
+        $game = Game::find($gameId);
 
         if($game->interactions->count() >= 14){
             return response()->json("done", 200);
@@ -74,7 +74,7 @@ class GameController extends Controller
        $newGame->user_id = $user->id;
        $newGame->save();
 
-       return response()->json($newGame, 200);
+       return response()->json($newGame->id, 200);
    }
 
  public function gameId($id) {
